@@ -4,8 +4,7 @@ import Product from './Product/Product';
 import useStyles from './styles';
 // import store from '../../store';
 import { useSelector } from 'react-redux';
-
-
+//取出store裡的productReducer的方法
 
 
 const Products = () => {

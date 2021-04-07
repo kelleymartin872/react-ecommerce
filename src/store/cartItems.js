@@ -1,3 +1,4 @@
+//加入購物車，數量更改
 const items = [];
 
 const cartItems = (state=items,action)=>{

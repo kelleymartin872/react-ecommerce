@@ -3,6 +3,7 @@ import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } fro
 import { AddShoppingCart } from '@material-ui/icons'
 import { addCarting } from '../../../actions';
 import { useDispatch,useSelector } from 'react-redux';
+//useDispatch夾帶action發送到store
 
 import useStyles from './styles';
 

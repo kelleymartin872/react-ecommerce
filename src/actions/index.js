@@ -1,3 +1,5 @@
+//修改store所調用的action
+
 export const addCarting = (item) => {
   return {
     type: 'ADD_CART',
