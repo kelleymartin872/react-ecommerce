@@ -57,7 +57,7 @@ const Cartlist = ({ toggleDrawer }) => {
     }
   }
   const cashFlow = () => {
-    alert(`您購買的件數為${totalCount()}件\r總金額為${total()}`)
+    alert(`您購買的件數為${totalCount()}件\r總金額為${total()}元`)
   }
   return (
     <div className={classes.list}>
