@@ -5,7 +5,11 @@ export default makeStyles((theme)=>({
   content:{
     flexGrow:1,
     backgroundColor:theme.palette.background.default,
-    padding:theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+      width: 940,
+      margin: '0px auto',
+      padding: '0px 16px',
+    },
   },
   root:{
     flexGrow:1,

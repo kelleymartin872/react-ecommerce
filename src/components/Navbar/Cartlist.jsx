@@ -17,17 +17,20 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import Button from '@material-ui/core/Button';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
-const useStyles = makeStyles((theme)=>({
+const useStyles = makeStyles((theme) => ({
   table: {
-    width: "100%",
+    width: '100%',
   },
   list: {
-    width: 500,
+    width: '100%',
     height: '90%',
   },
   button: {
-    margin: theme.spacing(1),
+    width: 100,
+    marginLeft: "auto",
+    margin: theme.spacing(2),
   },
   emptycart: {
     display: 'flex',
@@ -61,70 +64,68 @@ const Cartlist = ({ toggleDrawer }) => {
   }
   return (
     <div className={classes.list}>
-      <IconButton>
-        <ChevronRightIcon onClick={toggleDrawer(false)} />
-      </IconButton><br />
+      <IconButton onClick={toggleDrawer(false)}>
+        <ChevronRightIcon />
+      </IconButton>
       {cart.length !== 0 ?
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="spanning table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="center" colSpan={6}>
-                  <h1>購物車</h1>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell align="right" />
-                <TableCell align="center">商品圖片</TableCell>
-                <TableCell align="center">商品名稱</TableCell>
-                <TableCell align="center">價格</TableCell>
-                <TableCell align="center">數量</TableCell>
-                <TableCell align="center">小計</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {cart.map((product, index) => (
-                <TableRow key={product.ip}>
-                  <TableCell align="center">
-                    <IconButton onClick={() => dispatch(removeItem(index))}><DeleteIcon /></IconButton>
+        <>
+          <TableContainer component={Paper} className={classes.table}>
+            <Table aria-label="spanning table" >
+              <TableHead>
+                <TableRow>
+                  <TableCell align="center" colSpan={4}>
+                    <h1><ShoppingCartRoundedIcon />購物車</h1>
                   </TableCell>
-                  <TableCell align="center">
-                    <img style={{ height: "50px" }} src={product.image} alt={product.name} />
-                  </TableCell>
-                  <TableCell align="center">{product.name}</TableCell>
-                  <TableCell align="center">{product.price}</TableCell>
-                  <TableCell align="center">
-                    <IconButton onClick={() => { dispatch(increment(index)) }}><KeyboardArrowUpIcon fontSize="small" /></IconButton><br />
-                    {product.quantity}<br />
-                    <IconButton onClick={() => { dispatch(decrement(index)) }}><KeyboardArrowDownIcon fontSize="small" /></IconButton>
-                  </TableCell>
-                  <TableCell align="center">{(product.quantity) * (product.price)}</TableCell>
                 </TableRow>
-              ))}
-              <TableRow>
-                <TableCell colSpan={3} />
-                <TableCell colSpan={2} align="left">總共 - </TableCell>
-                <TableCell align="center">{totalCount()} 件</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell colSpan={3} />
-                <TableCell colSpan={2} align="left">總金額 - </TableCell>
-                <TableCell align="center">{total()} 元</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            endIcon={<ShoppingCartRoundedIcon/>}
-            style={{marginLeft:"80%"}}
-            onClick={()=>{cashFlow()}}
-          >
-          結帳
-          </Button>
-        </TableContainer>
-
+                <TableRow>
+                  <TableCell align="center" colSpan={2}>商品資訊</TableCell>
+                  <TableCell align="center" style={{ padding: 0 }}>數量</TableCell>
+                  <TableCell align="center">小計</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {cart.map((product, index) => (
+                  <TableRow key={product.id}>
+                    <TableCell align="center" style={{ padding: 0 }}>
+                      <IconButton onClick={() => dispatch(removeItem(index))}><DeleteIcon /></IconButton>
+                    </TableCell>
+                    <TableCell align="left">
+                      <div style={{ fontSize: 14, display: 'flex' }}><img style={{ height: "40px" }} src={product.image} alt={product.name} /><p style={{ marginLeft: 'auto' }}>${product.price}</p></div>
+                      <p style={{ margin: 0 }}>{product.name}</p>
+                    </TableCell>
+                    <TableCell align="center" style={{ padding: 0 }}>
+                      <IconButton onClick={() => { dispatch(increment(index)) }}><KeyboardArrowUpIcon fontSize="small" /></IconButton><br />
+                      {product.quantity}<br />
+                      <IconButton onClick={() => { dispatch(decrement(index)) }}><KeyboardArrowDownIcon fontSize="small" /></IconButton>
+                    </TableCell>
+                    <TableCell align="center">{(product.quantity) * (product.price)}</TableCell>
+                  </TableRow>
+                ))}
+                <TableRow>
+                  <TableCell colSpan={2} />
+                  <TableCell colSpan={1} align="center">共</TableCell>
+                  <TableCell align="center">{totalCount()} 件</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell colSpan={2} />
+                  <TableCell colSpan={1} align="center" style={{ padding: 0 }}>總金額</TableCell>
+                  <TableCell align="center">{total()} 元</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <div style={{ display: 'flex' }}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={<MonetizationOnIcon />}
+              onClick={cashFlow}
+            >
+              結帳
+            </Button>
+          </div>
+        </>
         :
         <div className={classes.emptycart}>
           <img src={emptyCart} alt="empty-cart" />
