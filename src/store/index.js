@@ -1,5 +1,5 @@
 import productsReducer from './productsReducer';
-import cartItems from './cartItems'
+import cartItems from './cartItems';
 import {combineReducers} from 'redux';
 
 //將兩個store混合成一個
