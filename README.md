@@ -2,7 +2,7 @@
 
 React-Ecommerce 是一個使用React建立的簡易電子商務前端專案，是個人由網路、書本的學習所練習開發的React網站作品。
 
-![首頁截圖頁面](https://github.com/gn00667340/react-ecommerce/tree/master/src/assets/React-Ecommerce.gif)
+![首頁截圖頁面](https://github.com/gn00667340/react-ecommerce/blob/master/src/assets/React-Ecommerce.gif)
 
 ## Demo - 專案展示
 
