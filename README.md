@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# React-Ecommerce
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React-Ecommerce 是一個使用React建立的簡易電子商務前端專案，是個人由網路、書本的學習所練習開發的React網站作品。
 
-## Available Scripts
+![首頁截圖頁面](https://github.com/gn00667340/react-ecommerce/tree/master/src/assets/React-Ecommerce.gif)
 
-In the project directory, you can run:
+## Demo - 專案展示
 
-### `npm start`
+[Demo Website](https://gn00667340.github.io/react-ecommerce/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features - 專案功能
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  1. 商品展示( 篩選器、單一商品資訊 )
+  2. 購物車功能( 加入購物車、刪除、數量增減、計算件數、總金額 )
+  3. RWD響應各種裝置螢幕尺寸大小
 
-### `npm test`
+## Technical Skills - 使用哪些技術實作專案
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Create-react-app - 快速建立專案項目環境
+- Function Components - 使用 props 實踐組件間資料傳遞
+- Redux - 統一管理應用程式部分狀態
+- React-redux - 設定全域擁有存取Redux-store的權限
+- React-hooks - 使用useState建立區域狀態
+- Material-UI - 版面設計、實作響應式網站
 
-### `npm run build`
+## Resource - 資料引用來源
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [OWNDAYS](https://www.owndays.com/tw/zh_tw)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Declaration - 聲明
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 本作品內圖片、內容等，純粹為個人練習前端使用，不做任何商業用途。
