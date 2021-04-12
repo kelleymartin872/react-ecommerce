@@ -1,4 +1,4 @@
-# React-Ecommerce
+# React-Ecommerce電商購物車
 
 React-Ecommerce 是一個使用React建立的簡易電子商務前端專案，是個人由網路、書本的學習所開發的React網站作品。
 
