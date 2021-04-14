@@ -18,7 +18,7 @@
 ## Technical Skills - 使用哪些技術實作專案
 
 - Create-react-app - 快速建立專案項目環境
-- Function Components - 實踐組件間資料的傳遞
+- Function Component - 實踐組件間資料的傳遞
 - Redux - 管理全域 state
 - React-redux - 設定全域存取 store 的權限
 - React-hooks - 使用 useState 建立區域狀態
