@@ -1,8 +1,7 @@
 # E-commerce電商購物車
 
-這個網站是一個使用React建立的電商購物車功能，起初先練習使用React做Todolist，之後將相同的概念轉換到這個作品
-再藉由網路資料、書本，將概念綜合起來，進而開發而成的作品。
-
+這個網站是使用React建立的電商購物車網站，起初先用React實做Todolist，之後將相同的概念轉換到電商購物車
+再藉由網路、書本搜尋資料，將概念綜合而成的作品，加入Redux及使用Heroku實作API串接。
 
 ![首頁截圖頁面](https://github.com/gn00667340/react-ecommerce/blob/master/src/assets/React-Ecommerce.gif)
 
@@ -27,6 +26,7 @@
 - Heroku - 部署遠端API文件做串接使用
 - React-hooks - 使用useState建立區域狀態，使用useEffect搭配API串接
 - Material-UI - 版面設計、實作響應式網站
+- Json-server - API測試
 
 ## Resource - 資料引用來源
 
