@@ -10,7 +10,7 @@ const Product = ({ product }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cartItems);
-  const oneAdd = ()=>{
+  const addOnce = ()=>{
     if(cart.find(item => item.id === product.id)){
       return true
     }
@@ -34,7 +34,7 @@ const Product = ({ product }) => {
         <IconButton 
         aria-label="Add to Cart" 
         onClick={()=>dispatch(addCarting(product))}
-        disabled={oneAdd()}
+        disabled={addOnce()}
         // cart.find(item => item.id === product.id
         >
           <AddShoppingCart />

@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Products, Navbar, Selector } from './components';
-import { useSelector } from 'react-redux';
 //import from index.js 集中導入維持code整潔
+// import { useDispatch,useSelector } from 'react-redux';
+import axios from 'axios';
 
 const App = () => {
-  const items = useSelector(state => state.productsReducer)
-  const [products, setProducts] = useState(items);
-
+  // const dispatch = useDispatch();
+  let [items,setItems] = useState([]) ;
+  const [products, setProducts] = useState([]);
+  const apiUrl = 'https://xxxxxxxxxx.herokuapp.com/products';
+  useEffect(() => {
+    axios.get(apiUrl)
+    .then((res)=>{
+      // dispatch(pushProductsToStore(res.data))
+      setItems(res.data)
+      setProducts(res.data)
+      console.log('success')
+    })
+    .catch((e)=>{
+      console.log(e)
+    })
+  },[])
+  // const items = useSelector(state => state.productsReducer);
   return (
     <>
       <Navbar />

@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
     boxShadow: 'none',
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
     width: '100%',
-    padding: '10px 10px',
+    padding: '0px 10px',
   },
   toolbar: {
     [theme.breakpoints.up('md')]: {

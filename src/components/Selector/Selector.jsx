@@ -29,7 +29,7 @@ const Selector = ({ items, products, setProducts }) => {
   const [selectBrand, setSelectBrand] = useState('')
   const [sortPrice, setSortPrice] = useState('')
 
-  const handleChange = (event) => {
+  const brandChange = (event) => {
     setSelectBrand(event.target.value)
     if (event.target.value === 'all') {
       setProducts(items);
@@ -39,7 +39,7 @@ const Selector = ({ items, products, setProducts }) => {
       setSortPrice('');
     }
   };
-  const sorter = (event) => {
+  const sortChange = (event) => {
     setSortPrice(event.target.value)
     switch (event.target.value) {
       default:
@@ -85,7 +85,7 @@ const Selector = ({ items, products, setProducts }) => {
             onClose={brand_Close}
             onOpen={brand_Open}
             value={selectBrand}
-            onChange={handleChange}
+            onChange={brandChange}
           >
             <MenuItem value='all'>
               <em>全部品牌</em>
@@ -111,9 +111,9 @@ const Selector = ({ items, products, setProducts }) => {
             onClose={sort_Close}
             onOpen={sort_Open}
             value={sortPrice}
-            onChange={sorter}
+            onChange={sortChange}
           >
-            <MenuItem value='all'>
+            <MenuItem value=''>
               <em>--------</em>
             </MenuItem>
             <MenuItem value='lowToHigh'>低→高</MenuItem>
