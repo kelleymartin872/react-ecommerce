@@ -1,23 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, increment, decrement } from '../../actions';
-import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
 import emptyCart from '../../assets/empty.png';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import Button from '@material-ui/core/Button';
-import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import { Button, Paper, TableRow, TableHead, TableContainer, TableCell, TableBody, Table, IconButton } from '@material-ui/core';
+import { MonetizationOn, ShoppingCartRounded, KeyboardArrowDown, KeyboardArrowUp, ChevronRight, Delete } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -65,7 +52,7 @@ const Cartlist = ({ toggleDrawer }) => {
   return (
     <div className={classes.list}>
       <IconButton onClick={toggleDrawer(false)}>
-        <ChevronRightIcon />
+        <ChevronRight />
       </IconButton>
       {cart.length !== 0 ?
         <>
@@ -74,11 +61,12 @@ const Cartlist = ({ toggleDrawer }) => {
               <TableHead>
                 <TableRow>
                   <TableCell align="center" colSpan={4}>
-                    <h1><ShoppingCartRoundedIcon />購物車</h1>
+                    <h1><ShoppingCartRounded />購物車</h1>
                   </TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell align="center" colSpan={2}>商品資訊</TableCell>
+                  <TableCell />
+                  <TableCell align="left" style={{ padding: 0 }}>商品資訊</TableCell>
                   <TableCell align="center" style={{ padding: 0 }}>數量</TableCell>
                   <TableCell align="center">小計</TableCell>
                 </TableRow>
@@ -86,17 +74,17 @@ const Cartlist = ({ toggleDrawer }) => {
               <TableBody>
                 {cart.map((product, index) => (
                   <TableRow key={product.id}>
-                    <TableCell align="center" style={{ padding: 0 }}>
-                      <IconButton onClick={() => dispatch(removeItem(index))}><DeleteIcon /></IconButton>
+                    <TableCell align="center"  style={{ padding: 0 }}>
+                      <IconButton onClick={() => dispatch(removeItem(index))}><Delete /></IconButton>
                     </TableCell>
-                    <TableCell align="left">
+                    <TableCell align="left" style={{ padding: 0 }}>
                       <div style={{ fontSize: 14, display: 'flex' }}><img style={{ height: "40px" }} src={product.image} alt={product.name} /><p style={{ marginLeft: 'auto' }}>${product.price}</p></div>
                       <p style={{ margin: 0 }}>{product.name}</p>
                     </TableCell>
                     <TableCell align="center" style={{ padding: 0 }}>
-                      <IconButton onClick={() => { dispatch(increment(index)) }}><KeyboardArrowUpIcon fontSize="small" /></IconButton><br />
+                      <IconButton onClick={() => { dispatch(increment(index)) }}><KeyboardArrowUp fontSize="small" /></IconButton><br />
                       {product.quantity}<br />
-                      <IconButton onClick={() => { dispatch(decrement(index)) }}><KeyboardArrowDownIcon fontSize="small" /></IconButton>
+                      <IconButton onClick={() => { dispatch(decrement(index)) }}><KeyboardArrowDown fontSize="small" /></IconButton>
                     </TableCell>
                     <TableCell align="center">{(product.quantity) * (product.price)}</TableCell>
                   </TableRow>
@@ -119,7 +107,7 @@ const Cartlist = ({ toggleDrawer }) => {
               variant="contained"
               color="primary"
               className={classes.button}
-              endIcon={<MonetizationOnIcon />}
+              endIcon={<MonetizationOn />}
               onClick={cashFlow}
             >
               結帳

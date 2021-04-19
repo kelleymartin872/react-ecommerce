@@ -1,10 +1,10 @@
 //修改store所調用的action
 
-export const addCarting = (item) => {
+export const addCarting = (product) => {
   return {
     type: 'ADD_CART',
-    item: item,
-    ip: item.ip,
+    product: product,
+    id: product.id,
   }
 }
 export const removeItem = (index) => {
@@ -23,5 +23,11 @@ export const decrement = (index) => {
   return{
     type:'DECREMENT_QUANTITY',
     index: index,
+  }
+}
+export const shakeShake = (boolean) => {
+  return{
+    type:'SHAKE_SHAKE',
+    boolean: boolean,
   }
 }

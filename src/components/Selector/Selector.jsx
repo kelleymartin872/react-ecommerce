@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import { Select, FormControl, MenuItem, InputLabel } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   option: {
     display: 'flex',
-    marginTop: '90px',
+    marginTop: '70px',
     marginLeft: 'auto',
     [theme.breakpoints.up('md')]: {
       width: 940,
-      margin: '90px auto 0px',
+      margin: '70px auto 0px',
       padding: '0px 16px',
     },
   },
@@ -22,20 +19,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Selector = ({ items, products, setProducts }) => {
+const Selector = ({ setAllState, allState }) => {
   const classes = useStyles();
   const [brandOpen, setBrandOpen] = useState(false);
   const [sortOpen, setSortOpen] = useState(false);
-  const [selectBrand, setSelectBrand] = useState('')
-  const [sortPrice, setSortPrice] = useState('')
+  const [selectBrand, setSelectBrand] = useState('');
+  const [sortPrice, setSortPrice] = useState('');
+  const items = allState.items;
+  const products = allState.products;
 
   const brandChange = (event) => {
-    setSelectBrand(event.target.value)
+    setSelectBrand(event.target.value);
     if (event.target.value === 'all') {
-      setProducts(items);
+      setAllState({ ...allState, products: items });
       setSortPrice('');
     } else {
-      setProducts(items.filter(product => product.brand === event.target.value));
+      setAllState({ ...allState, products: items.filter(product => product.brand === event.target.value) });
       setSortPrice('');
     }
   };
@@ -44,20 +43,18 @@ const Selector = ({ items, products, setProducts }) => {
     switch (event.target.value) {
       default:
         const normal = [...products].sort((a, b) => a.id - b.id)
-        setProducts(normal)
+        setAllState({ ...allState, products: normal })
         break;
       case ('lowToHigh'):
         const low = [...products].sort((a, b) => a.price - b.price);
-        setProducts(low)
+        setAllState({ ...allState, products: low })
         break;
       case ('highToLow'):
         const high = [...products].sort((a, b) => b.price - a.price)
-        setProducts(high)
+        setAllState({ ...allState, products: high })
         break;
     }
-
   }
-
   const brand_Close = () => {
     setBrandOpen(false);
   };
@@ -77,7 +74,7 @@ const Selector = ({ items, products, setProducts }) => {
     <div className={classes.option}>
       <div style={{ marginLeft: 'auto' }}>
         <FormControl className={classes.formControl}>
-          <InputLabel id="demo-controlled-open-select-label">依品牌排序</InputLabel>
+          <InputLabel id="demo-controlled-open-select-label">Select brand</InputLabel>
           <Select
             labelId="demo-controlled-open-select-label"
             id="demo-controlled-open-select"
@@ -88,7 +85,7 @@ const Selector = ({ items, products, setProducts }) => {
             onChange={brandChange}
           >
             <MenuItem value='all'>
-              <em>全部品牌</em>
+              <em>All brand</em>
             </MenuItem>
             <MenuItem value='+NICHE'>+NICHE</MenuItem>
             <MenuItem value='OWNDAYS'>OWNDAYS</MenuItem>
@@ -103,7 +100,7 @@ const Selector = ({ items, products, setProducts }) => {
           </Select>
         </FormControl>
         <FormControl className={classes.formControl}>
-          <InputLabel id="demo-controlled-open-select-label">依價格排序</InputLabel>
+          <InputLabel id="demo-controlled-open-select-label">Sort by price</InputLabel>
           <Select
             labelId="demo-controlled-open-select-label"
             id="demo-controlled-open-select"
@@ -114,10 +111,10 @@ const Selector = ({ items, products, setProducts }) => {
             onChange={sortChange}
           >
             <MenuItem value=''>
-              <em>--------</em>
+              <em>none</em>
             </MenuItem>
-            <MenuItem value='lowToHigh'>低→高</MenuItem>
-            <MenuItem value='highToLow'>高→低</MenuItem>
+            <MenuItem value='lowToHigh'>Low → High</MenuItem>
+            <MenuItem value='highToLow'>High → Low</MenuItem>
           </Select>
         </FormControl>
       </div>

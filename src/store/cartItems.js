@@ -6,8 +6,13 @@ const cartItems = (state = items, action) => {
 
   switch (action.type) {
     case 'ADD_CART':
-      newState.push(action.item)
-      return newState;
+      if (state.find(item => item.id === action.id)) {
+        newState.find(item => item.id === action.id).quantity += 1
+        return newState;
+      } else {
+        newState.push(action.product)
+        return newState;
+      }
     case 'REMOVE_CART':
       newState.splice(action.index, 1);
       return newState;
@@ -16,14 +21,11 @@ const cartItems = (state = items, action) => {
       return newState;
     case 'DECREMENT_QUANTITY':
       if (newState[action.index].quantity < 2) {
-        return newState
+        return state
       } else {
         newState[action.index].quantity -= 1;
         return newState;
       }
-    case 'clearAll':
-      newState.length = 0;
-      return newState;
     default:
       return state;
   }

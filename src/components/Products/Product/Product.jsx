@@ -1,21 +1,52 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
+import { Card, CardMedia, CardContent, Typography, CardActions, IconButton } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons'
-import { addCarting } from '../../../actions';
-import { useDispatch,useSelector } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch } from 'react-redux';
+import { addCarting, shakeShake } from '../../../actions';
 //useDispatch夾帶action發送到store
-import useStyles from './styles';
 
-const Product = ({ product }) => {
+const Product = ({ product, index }) => {
+  const useStyles = makeStyles(() => ({
+    root: {
+      maxWidth: '100%',
+      animation: '$app 600ms ease',
+      animationDelay: `${index * 80}ms`,
+      WebkitAnimationFillMode: 'backwards',
+      '&:hover': {
+        opacity: '1',
+      }
+    },
+    '@keyframes app': {
+      '0%': {
+        opacity: '0',
+        transform: 'translateY(80px)',
+      },
+      '60%': {
+        opacity: '1',
+        transform: 'translateY(-10px)',
+      },
+      '100': {
+        transform: 'translateY(0px)',
+        opacity: '1',
+      }
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%',
+    },
+    cardContent: {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    cardActions: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+    }
+  }));
   const classes = useStyles();
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cartItems);
-  const addOnce = ()=>{
-    if(cart.find(item => item.id === product.id)){
-      return true
-    }
-  }
-  
+
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.media} image={product.image} title={product.name} />
@@ -30,17 +61,13 @@ const Product = ({ product }) => {
         </div>
         <Typography variant="body2" color="textSecondary">{product.description}</Typography>
       </CardContent>
-      <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton 
-        aria-label="Add to Cart" 
-        onClick={()=>dispatch(addCarting(product))}
-        disabled={addOnce()}
-        // cart.find(item => item.id === product.id
-        >
+      <CardActions disableSpacing className={classes.cardActions} onClick={() => dispatch(addCarting(product))}>
+        <IconButton onClick={()=>{dispatch(shakeShake(true))}}>
           <AddShoppingCart />
         </IconButton>
       </CardActions>
     </Card>
+
   )
 }
 
