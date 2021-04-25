@@ -1,8 +1,6 @@
 # E-commerce電商購物車
 
-這個作品是使用React所建立的電商購物車網站，由實做Todolist所學習到的邏輯概念，轉換到這個作品之中，並加入Redux、Axio等技術。
-
-![首頁截圖頁面](https://github.com/gn00667340/react-ecommerce/blob/master/src/assets/React-Ecommerce.gif)
+![首頁截圖頁面](https://github.com/gn00667340/react-ecommerce/blob/master/src/assets/preview.png)
 
 ## Demo - 專案展示
 
