@@ -2,3 +2,4 @@
 export { default as Navbar } from './Navbar/Navbar';
 export { default as Products } from './Products/Products';
 export { default as Selector } from './Selector/Selector';
+export { default as ImageCarousel } from './Carousel/ImageCarousel';

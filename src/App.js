@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Products, Navbar, Selector } from './components';
+import { Products, Navbar, Selector, ImageCarousel } from './components';
 //import from index.js 集中導入維持code整潔
 import DataUsageSharpIcon from '@material-ui/icons/DataUsageSharp';
 import { makeStyles } from '@material-ui/core/styles';
@@ -52,7 +52,7 @@ const useStyle = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyle();
-  const apiUrl = 'https://mighty-tor-73xxxx.herokuapp.com/products';
+  const apiUrl = 'https://mighty-tor-73123.herokuapp.com/products';
   const [allState, setAllState] = useState({
     items: [],
     products: [],
@@ -89,6 +89,7 @@ const App = () => {
         :
         <>
           <Navbar />
+          <ImageCarousel />
           <Selector setAllState={setAllState} allState={allState} />
           <Products products={allState.products} />
         </>

@@ -1,11 +1,7 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, Typography, CardActions, IconButton } from '@material-ui/core';
-import { AddShoppingCart } from '@material-ui/icons'
+import { Card, CardMedia, CardContent, Typography, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { useDispatch } from 'react-redux';
-import { addCarting, shakeShake } from '../../../actions';
-//useDispatch夾帶action發送到store
-
+import AddCartButton from './AddCartButton';
 const Product = ({ product, index }) => {
   const useStyles = makeStyles(() => ({
     root: {
@@ -13,9 +9,6 @@ const Product = ({ product, index }) => {
       animation: '$app 600ms ease',
       animationDelay: `${index * 80}ms`,
       WebkitAnimationFillMode: 'backwards',
-      '&:hover': {
-        opacity: '1',
-      }
     },
     '@keyframes app': {
       '0%': {
@@ -42,11 +35,9 @@ const Product = ({ product, index }) => {
     cardActions: {
       display: 'flex',
       justifyContent: 'flex-end',
-    }
+    },
   }));
   const classes = useStyles();
-  const dispatch = useDispatch();
-
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.media} image={product.image} title={product.name} />
@@ -61,10 +52,8 @@ const Product = ({ product, index }) => {
         </div>
         <Typography variant="body2" color="textSecondary">{product.description}</Typography>
       </CardContent>
-      <CardActions disableSpacing className={classes.cardActions} onClick={() => dispatch(addCarting(product))}>
-        <IconButton onClick={()=>{dispatch(shakeShake(true))}}>
-          <AddShoppingCart />
-        </IconButton>
+      <CardActions disableSpacing className={classes.cardActions}>
+        <AddCartButton product={product}/>
       </CardActions>
     </Card>
 
