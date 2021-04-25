@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     padding: '0px',
     margin:'0px',
+    height:'64px'
   },
   toolbar: {
     padding:'0px 0px',

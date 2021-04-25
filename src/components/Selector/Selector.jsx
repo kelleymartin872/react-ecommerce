@@ -5,11 +5,10 @@ import { Select, FormControl, MenuItem, InputLabel } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   option: {
     display: 'flex',
-    marginTop: '70px',
-    marginLeft: 'auto',
+    margin: '0px auto',
     [theme.breakpoints.up('md')]: {
       width: 940,
-      margin: '70px auto 0px',
+      margin: '0px auto',
       padding: '0px 16px',
     },
   },
