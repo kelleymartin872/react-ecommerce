@@ -6,15 +6,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { ShoppingCart } from '@material-ui/icons';
 import { shakeShake } from '../../actions'
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     boxShadow: 'none',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+    borderBottom: '2px solid rgba(1, 1, 1, 0.12)',
     width: '100%',
     padding: '0px',
     margin:'0px',
-    height:'64px'
+    height:'56px',
+    [theme.breakpoints.up('md')]: {
+      height:'64px',
+    },
   },
   toolbar: {
     padding:'0px 0px',

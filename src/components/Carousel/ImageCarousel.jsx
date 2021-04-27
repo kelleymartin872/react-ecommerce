@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     position: 'relative',
-    marginTop:'64px',
+    marginTop:'54px',
     animation:'$EaseIn 1s',
     [theme.breakpoints.up('md')]: {
       margin: '64px auto 0px',
@@ -110,7 +110,7 @@ const ImageCarousel = () => {
       <IconButton onClick={nextImage} className={classes.rightIcon} size='medium'>
         <ChevronRightSharp/>
       </IconButton>
-      <img src={image1} style={{width:'100%',opacity:'0'}} alt="empty"></img>
+      <img src={image1} style={{width:'100%',opacity:'0',height:'100%'}} alt="empty"/>
       {items.map((item, index) => (
         <div className={index === counter ? classes.slideActive : classes.slide} key={index} >
           {index === counter && (<img src={item.image} className={classes.image} alt={item.name} />)}

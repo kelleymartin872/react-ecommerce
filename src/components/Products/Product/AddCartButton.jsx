@@ -11,22 +11,22 @@ const useStyles = makeStyles(() => ({
     '&:after': {
       content: "'+1'",
       position: 'absolute',
-      animation: '$plus 0.5s',
+      animation: '$plus 0.7s ease-in-out',
       font: 'small-caps bold 24px sans-serif',
       color: 'orange',
     }
   },
   '@keyframes plus': {
-    'from': {
+    '0%': {
       transform: 'translateY(-15px)',
       opacity: '1'
     },
-    'to': {
+    '100%': {
       transform: 'translateY(-50px)',
       opacity: '0'
-    }
-  }
-}));
+    },
+  },
+  }));
 const AddCartButton = ({ product }) => {
   const dispatch = useDispatch();
   const [id, setId] = useState();
@@ -37,8 +37,8 @@ const AddCartButton = ({ product }) => {
     setId(product.id)
   }
   return (
-    <IconButton onClick={handleAddCart} className={id === product.id ? classes.plusOne : ''} onAnimationEnd={() => { setId() }}>
-      <AddShoppingCart />
+    <IconButton onClick={handleAddCart} className={id === product.id ? classes.plusOne : ''} onAnimationEnd={() => { setId() }} >
+      <AddShoppingCart/>
     </IconButton>
   )
 }

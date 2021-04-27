@@ -15,7 +15,7 @@
 
 ## Technical Skills - 使用哪些技術實作專案
 
-- Create-react-app - 快速建立專案項目環境
+- Create-react-app - 快速建立React專案環境
 - Redux - 管理全域狀態
 - React-redux - 全域存取store權限
 - React-hooks - 使用useState建立區域狀態，使用useEffect搭配API串接

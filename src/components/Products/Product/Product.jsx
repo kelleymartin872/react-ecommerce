@@ -9,6 +9,10 @@ const Product = ({ product, index }) => {
       animation: '$app 600ms ease',
       animationDelay: `${index * 80}ms`,
       WebkitAnimationFillMode: 'backwards',
+      transition:'400ms ease',
+      '&:hover':{
+        transform:'scale(1.04)'
+      }
     },
     '@keyframes app': {
       '0%': {

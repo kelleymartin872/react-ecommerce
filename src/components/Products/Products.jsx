@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme)=>({
   content:{
     flexGrow:1,
     backgroundColor:theme.palette.background.default,
+    margin: '0px 10px',
     [theme.breakpoints.up('md')]: {
       width: 940,
       margin: '0px auto',

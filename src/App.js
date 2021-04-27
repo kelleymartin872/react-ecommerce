@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Products, Navbar, Selector, ImageCarousel } from './components';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Products, Navbar, Selector, ImageCarousel, Footer } from './components';
 //import from index.js 集中導入維持code整潔
 import DataUsageSharpIcon from '@material-ui/icons/DataUsageSharp';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,6 +9,16 @@ import axios from 'axios';
 
 const useStyle = makeStyles((theme) => ({
   "@import": 'url(https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap)',
+  "@global": {
+    body:{
+      boxSizing:'border-box',
+      margin:0,
+      padding:0,
+    },
+    html: {
+      backgroundColor: '#f5f5f5',
+    }
+  },
   loading: {
     position: 'absolute',
     left: '50%',
@@ -92,6 +103,7 @@ const App = () => {
           <ImageCarousel />
           <Selector setAllState={setAllState} allState={allState} />
           <Products products={allState.products} />
+          <Footer />
         </>
       }
     </>
