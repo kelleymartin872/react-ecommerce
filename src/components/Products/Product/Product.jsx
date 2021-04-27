@@ -11,7 +11,7 @@ const Product = ({ product, index }) => {
       WebkitAnimationFillMode: 'backwards',
       transition:'400ms ease',
       '&:hover':{
-        transform:'scale(1.04)'
+        transform:'scale(1.02)'
       }
     },
     '@keyframes app': {
